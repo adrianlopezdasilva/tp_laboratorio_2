@@ -1,0 +1,12 @@
+D:\Documentos\Facultad\Programacion2\TP1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+D:\Documentos\Facultad\Programacion2\TP1\WindowsFormsApp1\obj\Debug\MiCalculadora.csproj.GenerateResource.cache
+D:\Documentos\Facultad\Programacion2\TP1\WindowsFormsApp1\obj\Debug\MiCalculadora.csproj.CoreCompileInputs.cache
+D:\Documentos\Facultad\Programacion2\TP1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+D:\Documentos\Facultad\Programacion2\TP1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+D:\Documentos\Facultad\Programacion2\TP1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+D:\Documentos\Facultad\Programacion2\TP1\WindowsFormsApp1\bin\Debug\Entidades.dll
+D:\Documentos\Facultad\Programacion2\TP1\WindowsFormsApp1\bin\Debug\Entidades.pdb
+D:\Documentos\Facultad\Programacion2\TP1\WindowsFormsApp1\obj\Debug\MiCalculadora.csprojAssemblyReference.cache
+D:\Documentos\Facultad\Programacion2\TP1\WindowsFormsApp1\obj\Debug\MiCalculadora.csproj.CopyComplete
+D:\Documentos\Facultad\Programacion2\TP1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+D:\Documentos\Facultad\Programacion2\TP1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
