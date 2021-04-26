@@ -20,11 +20,25 @@ namespace MiCalculadora
 
         private void FormCalculadora_Load(object sender, EventArgs e)
         {
-
+            this.Limpiar();
         }
 
+        /// <summary>
+        /// Limpia el formulario colancando los valores por defecto en los distintos campos
+        /// </summary>
         private void Limpiar()
         {
+            this.txtNumero1.Text = "";
+            this.txtNumero2.Text = "";
+            this.cmbOperador.Text = "";
+            this.lblResultado.Text = "0";
+            btnConvertirADecimal.Enabled = false;
+            btnConvertirABinario.Enabled = false;
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            this.Limpiar();
         }
     }
 }
