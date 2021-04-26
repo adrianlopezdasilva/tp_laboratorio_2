@@ -59,19 +59,12 @@ namespace Entidades
         public string BinarioDecimal(string binario)
         {
             string auxString = "Valor invalido";
+            double auxDouble;
 
             if (this.EsBinario(binario))
             {
-                double auxNumero = 0;
-
-                for (int i = 0; i < binario.Length; i++)
-                {
-                    if (binario[i] == '1')
-                    {
-                        auxNumero = auxNumero + Math.Pow(2, binario.Length - 1);
-                    }
-                }
-                auxString = auxNumero.ToString();
+                double.TryParse(binario, out auxDouble);
+                auxString = Convert.ToInt32(binario, 2).ToString();
             }
 
             return auxString;
@@ -122,7 +115,7 @@ namespace Entidades
             bool retorno = true;
             for (int i = 0; i < binario.Length; i++)
             {
-                if (binario[i] != '1' || binario[i] != '0')
+                if (binario[i] != '1' && binario[i] != '0')
                 {
                     retorno = false;
                     break;
