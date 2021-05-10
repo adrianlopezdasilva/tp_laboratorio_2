@@ -109,7 +109,7 @@ namespace Entidades
         }
 
         /// <summary>
-        /// Sobrecarga de Equals 
+        /// Override de Equals 
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
@@ -121,6 +121,14 @@ namespace Entidades
                 return true;
             }
             return false;
+        }
+        /// <summary>
+        /// Override de GetHashCode
+        /// </summary>
+        /// <returns></returns>
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
         #endregion
     }
