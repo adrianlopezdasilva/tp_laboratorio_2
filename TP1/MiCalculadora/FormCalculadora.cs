@@ -11,66 +11,37 @@ using Entidades;
 
 namespace MiCalculadora
 {
-    public partial class FormCalculadora : System.Windows.Forms.Form
+    public partial class FormCalculadora : Form
     {
         public FormCalculadora()
         {
             InitializeComponent();
         }
-
         private void FormCalculadora_Load(object sender, EventArgs e)
         {
             this.Limpiar();
         }
 
-        private void btnLimpiar_Click(object sender, EventArgs e)
-        {
-            this.Limpiar();
-        }
-
-        private void btnCerrar_Click(object sender, EventArgs e)
-        {
-            FormCalculadora.ActiveForm.Close();
-        }
-
-         private void btnOperar_Click(object sender, EventArgs e)
-        {
-            this.lblResultado.Text = Convert.ToString(Operar(txtNumero1.Text, txtNumero2.Text, cmbOperador.Text));
-            btnConvertirADecimal.Enabled = false;
-            btnConvertirABinario.Enabled = true;
-        }
-
-        private void btnCovertirADecimal_Click(object sender, EventArgs e)
-        {
-            this.lblResultado.Text = new Numero().BinarioDecimal(this.lblResultado.Text);
-            btnConvertirADecimal.Enabled = false;
-            btnConvertirABinario.Enabled = true;
-        }
-
-        private void btnConvertirABinario_Click(object sender, EventArgs e)
-        {          
-            this.lblResultado.Text = new Numero().DecimalBinario(this.lblResultado.Text);
-            btnConvertirADecimal.Enabled = true;
-            btnConvertirABinario.Enabled = false;
-        }
-
-        private void FormCalculadora_FormClosing(object sender, FormClosingEventArgs e)
-        {
-
-        }
-
         /// <summary>
-        /// Limpia el formulario colancando los valores por defecto en los distintos campos
+        /// Limpia el formulario colocando los valores por defecto en los distintos campos
         /// </summary>
         private void Limpiar()
         {
             this.txtNumero1.Text = "";
             this.txtNumero2.Text = "";
-            this.cmbOperador.Text = "";
             this.lblResultado.Text = "0";
+            this.cmbOperador.Text = "";
             btnConvertirADecimal.Enabled = false;
             btnConvertirABinario.Enabled = false;
         }
+
+        private void FormCalculadora_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("¿Esta seguro de querer salir?", "Salir", MessageBoxButtons.YesNo) == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+         }
 
         /// <summary>
         /// Realiza la operacion deseada entre los dos numeros ingresados
@@ -79,14 +50,68 @@ namespace MiCalculadora
         /// <param name="numero2">Segundo operando</param>
         /// <param name="operador">Operador escogido</param>
         /// <returns>El resultado de la operacion</returns>
-        private static double Operar (string numero1, string numero2, string operador)
+        private static double Operar(string numero1, string numero2, string operador)
         {
-            Numero PrimerNumero = new Numero(numero1);
-            Numero SegundoNumero = new Numero(numero2);
+            char auxChar;
+            Operando PrimerNumero = new Operando(numero1);
+            Operando SegundoNumero = new Operando(numero2);
 
-            return Calculadora.Operar(PrimerNumero, SegundoNumero, operador);
+            char.TryParse(operador, out auxChar);
+
+            return Calculadora.Operar(PrimerNumero, SegundoNumero, auxChar);
         }
 
+        private void btnoperar_Click(object sender, EventArgs e)
+        {
+            double resultado;
+            string auxOperador = "+";
+            
+            resultado = (Operar(txtNumero1.Text, txtNumero2.Text, cmbOperador.Text));
+            if(resultado == double.MinValue)
+            {
+                MessageBox.Show("No se puede dividir por 0!!!", "Division por 0", MessageBoxButtons.OK);
+            }
+            else
+            {                 
+                this.lblResultado.Text = resultado.ToString();
+                btnConvertirADecimal.Enabled = false;
+                btnConvertirABinario.Enabled = true;
 
+                if(cmbOperador.Text != string.Empty)
+                {
+                    auxOperador = cmbOperador.Text;
+                }
+                StringBuilder sb = new StringBuilder();
+                sb.AppendFormat($"{txtNumero1.Text} {auxOperador} {txtNumero2.Text} = {lblResultado.Text}");
+                lstOperaciones.Items.Add(sb.ToString());
+
+
+            }
+
+        }
+
+        private void btnConvertirADecimal_Click(object sender, EventArgs e)
+        {
+            this.lblResultado.Text = new Operando().BinarioDecimal(this.lblResultado.Text);
+            btnConvertirADecimal.Enabled = false;
+            btnConvertirABinario.Enabled = true;
+        }
+
+        private void btnConvertirABinario_Click(object sender, EventArgs e)
+        {
+            this.lblResultado.Text = new Operando().DecimalBinario(this.lblResultado.Text);
+            btnConvertirADecimal.Enabled = true;
+            btnConvertirABinario.Enabled = false;
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            FormCalculadora.ActiveForm.Close();
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            this.Limpiar();
+        }
     }
 }
