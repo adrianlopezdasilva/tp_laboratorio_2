@@ -10,16 +10,8 @@ namespace Entidades
 {
     public class Sedan : Vehiculo
     {
-
-        #region Enumerados
         public enum ETipo { CuatroPuertas, CincoPuertas }
-
-        #endregion
-
-        #region Atributos
-        private ETipo tipo;
-
-        #endregion
+        ETipo tipo;
 
         #region Constructores
         /// <summary>
@@ -41,7 +33,7 @@ namespace Entidades
         /// <param name="chasis"></param>
         /// <param name="color"></param>
         /// <param name="tipo"></param>
-        public Sedan(EMarca marca, string chasis, ConsoleColor color, ETipo tipo) : base (chasis , marca, color)
+        public Sedan(EMarca marca, string chasis, ConsoleColor color, ETipo tipo) : base(chasis, marca, color)
         {
             this.tipo = tipo;
         }

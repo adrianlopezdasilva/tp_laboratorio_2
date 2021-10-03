@@ -8,14 +8,16 @@ namespace Entidades
 {
     public class Ciclomotor : Vehiculo
     {
-        #region Constructores
-        public Ciclomotor(EMarca marca, string chasis, ConsoleColor color) :base(chasis, marca, color)
+        #region Constructores 
+
+        public Ciclomotor(EMarca marca, string chasis, ConsoleColor color) : base(chasis, marca, color)
         {
         }
 
         #endregion
 
         #region Propiedades
+
         /// <summary>
         /// Ciclomotor son 'Chico'
         /// </summary>
@@ -30,6 +32,7 @@ namespace Entidades
         #endregion
 
         #region Metodos
+
         /// <summary>
         /// Publica los datos del Ciclomotor
         /// </summary>
@@ -40,7 +43,7 @@ namespace Entidades
 
             sb.AppendLine("CICLOMOTOR");
             sb.AppendLine(base.Mostrar());
-            sb.AppendLine("TAMAÑO : " + this.Tamanio);
+            sb.AppendLine("TAMAÑO : "+ this.Tamanio);
             sb.AppendLine("");
             sb.AppendLine("---------------------");
 

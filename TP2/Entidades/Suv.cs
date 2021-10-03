@@ -8,14 +8,7 @@ namespace Entidades
 {
     public class Suv : Vehiculo
     {
-        #region Constructores
-
-        /// <summary>
-        /// Constructor con parametros que utiliza a la clase base
-        /// </summary>
-        /// <param name="marca"></param>
-        /// <param name="chasis"></param>
-        /// <param name="color"></param>
+        #region Construcotre
         public Suv(EMarca marca, string chasis, ConsoleColor color)
             : base(chasis, marca, color)
         {
@@ -40,7 +33,7 @@ namespace Entidades
         #region Metodos
 
         /// <summary>
-        /// Publica los datos de SUV
+        /// Public los datos de SUV
         /// </summary>
         /// <returns></returns>
         public override sealed string Mostrar()

@@ -12,7 +12,6 @@ namespace Entidades
     public sealed class Taller
     {
         #region Atributos
-
         private List<Vehiculo> vehiculos;
         private int espacioDisponible;
 
@@ -68,19 +67,19 @@ namespace Entidades
                 switch (tipo)
                 {
                     case ETipo.SUV:
-                        if(v is Suv)
+                        if (v is Suv)
                         {
                             sb.AppendLine(v.Mostrar());
                         }
                         break;
 
                     case ETipo.Ciclomotor:
-                        if(v is Ciclomotor)
+                        if (v is Ciclomotor)
                         {
                             sb.AppendLine(v.Mostrar());
                         }
                         break;
-                        
+
                     case ETipo.Sedan:
                         if (v is Sedan)
                         {
@@ -97,6 +96,7 @@ namespace Entidades
         }
         #endregion
 
+
         #region "Operadores"
         /// <summary>
         /// Agregará un elemento a la lista
@@ -108,18 +108,19 @@ namespace Entidades
         {
             bool aux = true;
             foreach (Vehiculo v in taller.vehiculos)
-             {
+            {
                 if (v == vehiculo)
                 {
                     aux = false;
-                 }
-             }
-            if(aux == true && taller.espacioDisponible > taller.vehiculos.Count())
+                }
+            }
+            if (aux == true && taller.espacioDisponible > taller.vehiculos.Count())
             {
                 taller.vehiculos.Add(vehiculo);
             }
             return taller;
         }
+
         /// <summary>
         /// Quitará un elemento de la lista
         /// </summary>
@@ -128,16 +129,16 @@ namespace Entidades
         /// <returns></returns>
         public static Taller operator -(Taller taller, Vehiculo vehiculo)
         {
-             foreach (Vehiculo v in taller.vehiculos)
-             {
-                 if (v == vehiculo)
-                 {
-                        taller.vehiculos.Remove(vehiculo);
-                        break;
-                 }
-             }
-             return taller;
+            foreach (Vehiculo v in taller.vehiculos)
+            {
+                if (v == vehiculo)
+                {
+                    taller.vehiculos.Remove(vehiculo);
+                    break;
+                }
+            }
+            return taller;
         }
         #endregion
-    }
+    }    
 }

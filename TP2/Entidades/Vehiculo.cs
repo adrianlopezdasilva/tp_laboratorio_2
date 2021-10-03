@@ -12,6 +12,7 @@ namespace Entidades
     public abstract class Vehiculo
     {
         #region Enumerados
+
         public enum EMarca
         {
             Chevrolet, Ford, Renault, Toyota, BMW, Honda, HarleyDavidson
@@ -32,6 +33,7 @@ namespace Entidades
         #endregion
 
         #region Propiedades
+
         /// <summary>
         /// ReadOnly: Retornará el tamaño
         /// </summary>
@@ -47,7 +49,7 @@ namespace Entidades
         /// <param name="chasis"></param>
         /// <param name="marca"></param>
         /// <param name="color"></param>
-        public Vehiculo (string chasis, EMarca marca, ConsoleColor color)
+        public Vehiculo(string chasis, EMarca marca, ConsoleColor color)
         {
             this.chasis = chasis;
             this.marca = marca;
@@ -57,11 +59,11 @@ namespace Entidades
         #endregion
 
         #region Metodos
-
         /// <summary>
         /// Publica todos los datos del Vehiculo.
         /// </summary>
         /// <returns></returns>
+
         public virtual string Mostrar()
         {
             return (string)this;
@@ -81,7 +83,7 @@ namespace Entidades
 
             sb.AppendLine("CHASIS: "+ p.chasis);
             sb.AppendLine("MARCA : "+ p.marca.ToString());
-            sb.AppendLine("COLOR :"+ p.color.ToString());
+            sb.AppendLine("COLOR : "+ p.color.ToString());
             sb.AppendLine("---------------------");
 
             return sb.ToString();
@@ -108,28 +110,6 @@ namespace Entidades
             return !(v1 == v2);
         }
 
-        /// <summary>
-        /// Override de Equals 
-        /// </summary>
-        /// <param name="obj"></param>
-        /// <returns></returns>
-        public override bool Equals(object obj)
-        {
-            if (obj is Vehiculo)
-            {
-                if (this == ((Vehiculo)obj))
-                return true;
-            }
-            return false;
-        }
-        /// <summary>
-        /// Override de GetHashCode
-        /// </summary>
-        /// <returns></returns>
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
         #endregion
     }
 }
