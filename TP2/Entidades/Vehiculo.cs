@@ -66,7 +66,16 @@ namespace Entidades
 
         public virtual string Mostrar()
         {
-            return (string)this;
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("CHASIS: " + this.chasis);
+            sb.AppendLine("MARCA : " + this.marca);
+            sb.AppendLine("COLOR : " + this.color);
+            sb.AppendLine("TAMAÑO : " + this.Tamanio);
+
+            sb.AppendLine("");
+            sb.AppendLine("---------------------");
+
+            return sb.ToString();
         }
 
         #endregion
